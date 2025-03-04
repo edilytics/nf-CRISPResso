@@ -12,5 +12,5 @@ include { CRISPResso ; CRISPRessoBatch ; CRISPRessoPooled ; CRISPRessoWGS } from
 params.input_dir = './data'
 
 workflow {
-    CRISPRessoBatch(Channel.fromPath(params.input_dir)) | view
+    CRISPResso(Channel.fromPath(params.input_dir)) | view
 }
