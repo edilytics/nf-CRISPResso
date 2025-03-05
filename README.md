@@ -3,7 +3,6 @@ A Nextflow workflow for CRISPResso.
 
 This repository contains resources for integrating CRISPResso2 into your Nextflow projects.
 
-## Documentation
 For more information on Nextflow, refer to the [Nextflow documentation](https://www.nextflow.io/docs/latest/).
 
 ## Workflow Structure
@@ -17,4 +16,3 @@ For more information on Nextflow, refer to the [Nextflow documentation](https://
 ## Usage
 - CRISPResso processes expect a directory containing all data files as the input channel.
 - All CRISPResso parameters can be passed through the command line using `--param value` or set in `nextflow.config`.
-
