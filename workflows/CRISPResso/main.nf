@@ -71,6 +71,10 @@ process CRISPRessoWGS {
 
 def buildCommand(String base_cmd, Map params) {
     params.each { key, value ->
+        def exclude_list = ['input_dir']
+        if (exclude_list.contains(key)) {
+            return null
+        }
         def arg = key.length() < 4 ? "-${key}" : "--${key}"
         if (value instanceof Boolean && value) {
             base_cmd += " ${arg}"
