@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl = 2
 
+
 process CRISPResso {
     input:
     path "input_dir"
@@ -70,9 +71,15 @@ process CRISPRessoWGS {
 }
 
 def buildCommand(String base_cmd, Map params) {
+
+    def jsonFile = file("${projectDir}/workflows/CRISPResso/include_args.json")
+    def json = jsonFile.text
+    def argsList = new groovy.json.JsonSlurper().parseText(json)
+
     params.each { key, value ->
-        def exclude_list = ['input_dir']
-        if (exclude_list.contains(key)) {
+        // def exclude_list = ['input_dir']
+        //TODO: create an inclusion list from args.json
+        if (!argsList.contains(key)) {
             return null
         }
         def arg = key.length() < 4 ? "-${key}" : "--${key}"
