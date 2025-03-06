@@ -77,8 +77,6 @@ def buildCommand(String base_cmd, Map params) {
     def argsList = new groovy.json.JsonSlurper().parseText(json)
 
     params.each { key, value ->
-        // def exclude_list = ['input_dir']
-        //TODO: create an inclusion list from args.json
         if (!argsList.contains(key)) {
             return null
         }
