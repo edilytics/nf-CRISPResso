@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 # Define file paths
 JSON_FILE="args.json"
